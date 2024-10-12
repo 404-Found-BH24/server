@@ -3,6 +3,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
+const { authRouter } = require('./endpoints/auth');
+
 const app = express();
 
 app.use(bodyParser.json());
@@ -13,6 +15,7 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use('/auth', authRouter);
 
 const start = async () => {
     console.log('Connecting to database...');
