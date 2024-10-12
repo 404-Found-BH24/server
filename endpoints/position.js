@@ -7,18 +7,18 @@ positionsRouter.get('/', async (req, res) => {
     res.json(position);
 });
 
-positionsRouter.get('/:name', async (req, res) => {
-    const { name } = req.params;
-    const position = await Position.findOne({ name });
+positionsRouter.get('/:id', async (req, res) => {
+    const { id } = req.params;
+    const position = await Position.findOne({ id });
 
     res.json(position)
 });
 
 positionsRouter.post('/', async (req, res) => {
-    const { name, results } = req.body;
+    const { name, companyName, companyDescription, results } = req.body;
 
     const position = await Position.create({
-        name, results
+        name, companyName, companyDescription, results
     });
 
     res.json(position)
