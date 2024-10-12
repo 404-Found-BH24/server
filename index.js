@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 const { authRouter } = require('./endpoints/auth');
+const { positionsRouter } = require('./endpoints/position');
+const { rankingsRouter } = require('./endpoints/rankings');
 
 const app = express();
 
@@ -16,6 +18,8 @@ app.use((req, res, next) => {
 });
 
 app.use('/auth', authRouter);
+app.use('/positions', positionsRouter);
+app.use('/rankings', rankingsRouter);
 
 const start = async () => {
     console.log('Connecting to database...');
