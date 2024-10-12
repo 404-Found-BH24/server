@@ -4,7 +4,7 @@ const Position = mongoose.model('Position', {
     results: [{
         user: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Company'
+            ref: 'User'
         },
         score: Number
     }]

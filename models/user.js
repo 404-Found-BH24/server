@@ -6,8 +6,8 @@ const User = mongoose.model('User', {
     surname: { type: String, required: true },
     lookingForJob: { type: Boolean, required: true },
     cv: {
-        file: { type: Buffer, required: true },
-        filename: { type: String, required: true },
+        file: { type: Buffer, required: false },
+        filename: { type: String, required: false },
     }
 });
 
