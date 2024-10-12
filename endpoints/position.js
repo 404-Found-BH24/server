@@ -15,10 +15,10 @@ positionsRouter.get('/:id', async (req, res) => {
 });
 
 positionsRouter.post('/', async (req, res) => {
-    const { name, companyName, companyDescription, results } = req.body;
+    const { name, companyName, companyDescription } = req.body;
 
     const position = await Position.create({
-        name, companyName, companyDescription, results
+        name, companyName, companyDescription
     });
 
     res.json(position)
