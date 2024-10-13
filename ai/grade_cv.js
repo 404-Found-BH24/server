@@ -66,7 +66,6 @@ Dane wypisz tylko i wyłącznie w formie JSON'a po polsku:
             },
             { new: true }
         );
-        console.log(updatedUser);
         res.json(updatedUser);
     } catch (error) {
         console.error('Failed to parse response:', responseContent);
