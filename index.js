@@ -25,7 +25,7 @@ app.use((req, res, next) => {
 
 app.use('/auth', authRouter);
 app.use('/positions', positionsRouter);
-app.use('/rankings', rankingsRouter);
+app.use('/ranking', rankingsRouter);
 app.use('/grade-cv', gradingRouter);
 app.use('/interview', interviewRouter);
 
