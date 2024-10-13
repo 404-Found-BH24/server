@@ -38,7 +38,7 @@ authRouter.post('/login', async (req, res) => {
 });
 
 authRouter.post('/register', upload.single('cv'), async (req, res) => {
-    const { email, password, name, surname, lookingForJob } = req.body;
+    const { email, password, name, surname, lookingForJob, cv } = req.body;
 
     if (await User.findOne({ email })) {
         return res.status(400).json({ message: "Email już w użyciu." });
@@ -46,7 +46,9 @@ authRouter.post('/register', upload.single('cv'), async (req, res) => {
 
     try {
         const hashedPassword = await bcrypt.hash(password, 10)
-        console.log(hashedPassword);
+
+        const rankings = {}
+        const experience = {}
 
         const user = await User.create({
             email,
@@ -54,9 +56,17 @@ authRouter.post('/register', upload.single('cv'), async (req, res) => {
             name,
             surname,
             lookingForJob,
+            cv,
+            rankings,
+            experience
         });
 
-        res.status(201).json(user._id);
+        const output = {
+            id: user.id,
+            cv: user.cv
+        }
+
+        res.status(200).json(output);
     } catch (error) {
         res.status(400).json({ message: error.message });
     }

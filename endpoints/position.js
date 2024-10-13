@@ -9,7 +9,7 @@ positionsRouter.get('/', async (req, res) => {
 
 positionsRouter.get('/:id', async (req, res) => {
     const { id } = req.params;
-    const position = await Position.findOne({ id });
+    const position = await Position.findOne({ _id: id });
 
     res.json(position)
 });

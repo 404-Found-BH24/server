@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Position = mongoose.model('Position', {
-    name: {type: String, required: true},
+    name: String,
     companyName: String,
     companyDescription: String,
 });

@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const { authRouter } = require('./endpoints/auth');
 const { positionsRouter } = require('./endpoints/position');
@@ -13,6 +14,8 @@ const app = express();
 
 app.use(bodyParser.json({limit: '150mb'}));
 app.use(bodyParser.urlencoded({ limit: '150mb', extended: true }));
+app.use(cors());
+app.use(express.json());
 
 app.use((req, res, next) => {
     res.set('Access-Control-Allow-Origin', '*');

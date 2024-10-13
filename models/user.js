@@ -5,7 +5,7 @@ const User = mongoose.model('User', {
     name: { type: String, required: true },
     surname: { type: String, required: true },
     lookingForJob: { type: Boolean, required: true },
-    cvUrl: String,
+    cv: String,
     rankings: {
         summary: Number,
         frontend: Number,

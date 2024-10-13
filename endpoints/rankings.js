@@ -6,9 +6,9 @@ rankingsRouter.get('/:name', async (req, res) => {
     const { name } = req.params;
     const position = await Position.findOne({ name });
 
-    //const sortedResults = position.results.sort((a, b) => b.score - a.score);
+    const sortedResults = position.results.sort((a, b) => b.score - a.score);
 
-    //res.json(sortedResults);
+    res.json(sortedResults);
 });
 
 module.exports = { rankingsRouter };
